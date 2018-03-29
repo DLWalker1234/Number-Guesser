@@ -36,13 +36,8 @@ namespace numberguesser2
                     // Make Sure its a Number
                     if (!int.TryParse(userGuess, out guessNumber))
                     {
-                        // Change Text Color
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        // Tell User its NOT A NUMBER
-                        Console.WriteLine("Please Enter an ACTUAL NUMBER");
-
-                        Console.ResetColor();
+                        // Print Error Message
+                        PrintColorMessage(ConsoleColor.Red,"Please and ACTUAL NUMBER BRO!")
 
                         // Kepp Going
                         continue;
@@ -54,24 +49,12 @@ namespace numberguesser2
                     // Match Guess to Correct Number
                     if (guessNumber != correctNumber)
                     {
-                        // Change Text Color
-                        Console.ForegroundColor = ConsoleColor.Red;
-
-                        // Tell User its the Wrong Number
-                        Console.WriteLine("Wrong Number Please Try Again");
-
-                        Console.ResetColor();
+                        PrintColorMessage(ConsoleColor.Red, "Wrong Numver Please Try Again!");
                     }
                 }
 
-                // Output Success Message
-                // Change Text Color
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                // Tell User its the Right Number
-                Console.WriteLine("Correct, What are the ODDS!?!");
-
-                Console.ResetColor();
+                // Output Success Message               
+                PrintColorMessage(ConsoleColor.Yellow, "Correct, What are the ODDS!?!");
 
                 // Ask to Play Again
                 Console.WriteLine("Play again [y/n]");
@@ -118,6 +101,17 @@ namespace numberguesser2
             string userName = Console.ReadLine();
 
             Console.WriteLine("Hello {0}, Shall we play a game?", userName);
+        }
+        // Print Color Message
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            // Change Text Color
+            Console.ForegroundColor = color;
+
+            // Tell User its NOT A NUMBER
+            Console.WriteLine(message);
+
+            Console.ResetColor();
         }
     }
 }
