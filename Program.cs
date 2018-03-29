@@ -31,7 +31,10 @@ namespace numberguesser2
             Console.WriteLine("Hello {0}, Shall we play a game?", userName);
 
             // Set Number
-            int correctNumber = 7;
+            // Create a New Random Object
+            Random random = new Random();
+
+            int correctNumber = random.Next(1, 10);
 
             // init Guess Var
             int guessNumber = 0;
@@ -46,7 +49,7 @@ namespace numberguesser2
                 string userGuess = Console.ReadLine();
 
                 // Make Sure its a Number
-                if(!int.TryParse(userGuess, out guessNumver))
+                if(!int.TryParse(userGuess, out guessNumber))
                 {
                     // Change Text Color
                     Console.ForegroundColor = ConsoleColor.Red;
