@@ -45,6 +45,21 @@ namespace numberguesser2
                 // Get Users Input
                 string userGuess = Console.ReadLine();
 
+                // Make Sure its a Number
+                if(!int.TryParse(userGuess, out guessNumver))
+                {
+                    // Change Text Color
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    // Tell User its NOT A NUMBER
+                    Console.WriteLine("Please Enter an ACTUAL NUMBER");
+
+                    Console.ResetColor();
+
+                    // Kepp Going
+                    continue;
+                }
+
                 // Cast to int and put into guessNumber var
                 guessNumber = Int32.Parse(userGuess);
 
@@ -54,12 +69,21 @@ namespace numberguesser2
                     // Change Text Color
                     Console.ForegroundColor = ConsoleColor.Red;
 
-                    // Write Out App Info
+                    // Tell User its the Wrong Number
                     Console.WriteLine("Wrong Number Please Try Again");
 
                     Console.ResetColor();
                 }
             }
+
+            // Output Success Message
+            // Change Text Color
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            // Tell User its the Right Number
+            Console.WriteLine("Correct, What are the ODDS!?!");
+
+            Console.ResetColor();
 
 
         }
